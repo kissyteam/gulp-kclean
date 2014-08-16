@@ -19,7 +19,7 @@ gulp.task("kclean", function() {
         .pipe(gulp.dest("./build"))
 });
 
-sea.js
+//sea.js
 gulp.task("kclean", function() {
     gulp.src("./combo/*.js")
         .pipe(kclean({

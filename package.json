@@ -1,6 +1,6 @@
 {
   "name": "gulp-kclean",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "kclean gulp plugin",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "gulp-util": "^3.0.0",
-    "kclean": "0.0.1",
+    "kclean": "0.0.4",
     "through2": "^0.6.1"
   }
 }

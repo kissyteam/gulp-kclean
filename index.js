@@ -2,6 +2,7 @@
 var through2 = require('through2'),
     gutil = require('gulp-util'),
     kclean = require('kclean'),
+    _ = require('underscore'),
     fs = require('fs'),
     path = require('path');
 
@@ -9,6 +10,7 @@ var through2 = require('through2'),
 module.exports = function(opt) {
     opt = opt || {};
     var files = opt.files,
+        options = opt.options||{},
         minify = opt.minify;
 
     return through2.obj(function (file, enc, callback ) {
@@ -25,7 +27,7 @@ module.exports = function(opt) {
 
             var has =  false, cleanFile;
             files.forEach(function(_file){
-                if(path.resolve(_file.path) == path.resolve(file.path)){
+                if(path.resolve(_file.src) == path.resolve(file.path)){
                     has = true;
                     cleanFile = _file;
                     return false;
@@ -36,13 +38,9 @@ module.exports = function(opt) {
             if(has) {
 
                 try{
-                    var code = kclean.clean(file.contents.toString(), {
-                                                         minify:minify,
-                                                         prefixMode:"camelCase",
-                                                         outputModule:cleanFile.outputModule
-                                                  });
+                    var code = kclean.clean(file.contents.toString(),_.extend({prefixMode:"camelCase"},options,cleanFile));
                     file.contents = new Buffer(code);
-                    gutil.log('cleaned  file ' + gutil.colors.green(cleanFile.path) + ' is created.');
+                    gutil.log('cleaned  file ' + gutil.colors.green(cleanFile.src) + ' is created.');
 
                 }catch(err){
                     this.emit('error', new gutil.PluginError('gulp-clean', err));

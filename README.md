@@ -6,30 +6,29 @@ gulp-kclean
 ### how to use
 ```js
 var kclean = require('gulp-kclean');
-gulp.task("udata", function() {
-    gulp.src(src.udata)
-        .pipe(kmc.convert({
-            minify:true
-        }))
-        .pipe(kmc.combo({
-             minify:true,
-             files:[{
-                       src: './server/udata/init.js',
-                       dest: '../userver/build/udata/combo.js'
-                   }]
-         }))
+
+//kissy
+gulp.task("kclean", function() {
+    gulp.src("./combo/*.js")
         .pipe(kclean({
-            minify:true,
             files:[{
-                        path:'../userver/build/udata/combo-min.js',
+                        src:'init-min.js',
                         outputModule:'udata/init'
                   }]
         }))
-        .pipe(gulp.dest(path.join(userverPath,"udata")))
-        .on("end", function() {
-             gulp.src(path.join(userverPath,"udata/combo-min.js"))
-                 .pipe(rename("init-min.js"))
-                 .pipe(gulp.dest(path.join(userverPath,"udata")));
-        });
+        .pipe(gulp.dest("./build"))
 });
+
+sea.js
+gulp.task("kclean", function() {
+    gulp.src("./combo/*.js")
+        .pipe(kclean({
+            files:[{
+                        src:'init-min.js',
+                        outputModule:'udata/init'
+                  }]
+        }))//配置与kissy一样，kclean内部会自动识别代码风格
+        .pipe(gulp.dest("./build"))
+});
+
 ```

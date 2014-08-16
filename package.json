@@ -1,10 +1,14 @@
 {
   "name": "gulp-kclean",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "kclean gulp plugin",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hustxiaoc/gulp-kclean"
   },
   "keywords": [
     "kissy",
@@ -16,5 +20,9 @@
     "gulp-util": "^3.0.0",
     "kclean": "0.0.4",
     "through2": "^0.6.1"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/hustxiaoc/gulp-kclean/issues"
+  },
+  "homepage": "https://github.com/hustxiaoc/gulp-kclean",
 }

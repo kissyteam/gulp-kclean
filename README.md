@@ -31,4 +31,22 @@ gulp.task("kclean", function() {
         .pipe(gulp.dest("./build"))
 });
 
+//原生js
+gulp.task("kclean", function() {
+    gulp.src("./combo/*.js")
+        .pipe(kclean({
+            options:{
+                wrap:{
+                    start:"(function(){",
+                    end:"})();"
+                }
+            },
+            files:[{
+                        src:'init-min.js',
+                        outputModule:'udata/init'
+                  }]
+        }))//配置与kissy一样，kclean内部会自动识别代码风格
+        .pipe(gulp.dest("./build"))
+});
+
 ```

@@ -1,6 +1,6 @@
 {
   "name": "gulp-kclean",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "kclean gulp plugin",
   "main": "index.js",
   "scripts": {
@@ -19,7 +19,8 @@
   "dependencies": {
     "gulp-util": "^3.0.0",
     "kclean": "0.0.4",
-    "through2": "^0.6.1"
+    "through2": "^0.6.1",
+    "underscore": "^1.6.0"
   },
   "bugs": {
     "url": "https://github.com/hustxiaoc/gulp-kclean/issues"
